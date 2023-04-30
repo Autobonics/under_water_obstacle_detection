@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "579594470706",
+    "firebase_url": "https://accident-detection-c160e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "accident-detection-c160e",
+    "storage_bucket": "accident-detection-c160e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579594470706:android:03c3d6f0d3140f32dac32b",
+        "android_client_info": {
+          "package_name": "com.autobonics.vehicle_safety"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579594470706-oa5p3f14f1tq3hj23i8vp4k60u6k33m4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKqDP5iHu3ZCNKDjrZSUG-OlWEu104GgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579594470706-oa5p3f14f1tq3hj23i8vp4k60u6k33m4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
