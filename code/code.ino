@@ -1,6 +1,12 @@
+//Servo
+#include <Servo.h>
+static const int servoPin = 33;
+Servo servo1;
+int pos = 0;
+
 //Ultrasonics sensor
-const int trigPin = 12;
-const int echoPin = 13;
+const int trigPin = 32;
+const int echoPin = 34;
 
 //define sound speed in cm/uS
 #define SOUND_SPEED 0.034
@@ -54,6 +60,8 @@ void setup() {
   Serial.begin(115200); // Starts the serial communication
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
   pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+
+  servo1.attach(servoPin);
  
   pinMode(wifiLedPin, INPUT);
   digitalWrite(wifiLedPin, LOW);
@@ -120,11 +128,15 @@ void loop() {
   updateData();
 }
 
+bool isIncrementing  = false;
+
 void updateData() {
-  if (Firebase.ready() && (millis() - sendDataPrevMillis > 5000 || sendDataPrevMillis == 0))
+  if (Firebase.ready() && (millis() - sendDataPrevMillis > 100 || sendDataPrevMillis == 0))
   {
+    runServo();
     sendDataPrevMillis = millis();
     FirebaseJson json;
+    json.set("p", pos);
     json.set("d", distanceCm);
     json.set(F("ts/.sv"), F("timestamp"));
     Serial.printf("Set json... %s\n", Firebase.RTDB.set(&fbdo, path.c_str(), &json) ? "ok" : fbdo.errorReason().c_str());
@@ -132,6 +144,20 @@ void updateData() {
   }
 }
 
+
+void runServo(){
+  if(pos == 0){
+    isIncrementing = true;
+  } else if(pos == 180){
+    isIncrementing = false;
+  }
+  if(isIncrementing){
+    pos+=5;
+  } else {
+    pos-=5;
+  }
+  servo1.write(pos);
+}
 
 
 void printData() {

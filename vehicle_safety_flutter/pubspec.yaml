@@ -20,6 +20,7 @@ dependencies:
   syncfusion_flutter_charts: ^20.3.58
   syncfusion_flutter_gauges: ^20.3.58
   lottie: ^2.2.0
+  vector_math: ^2.1.0
 
   #stacked - flutter pub run build_runner build --delete-conflicting-outputs
   stacked: ^3.0.0
@@ -34,6 +35,9 @@ dependencies:
 
   # basic
   flutter_native_splash: ^2.2.15
+  geolocator: ^9.0.2
+  url_launcher: ^6.0.3
+  flutter_sms: ^2.3.3
 
 # flutter pub run flutter_native_splash:create
 flutter_native_splash:

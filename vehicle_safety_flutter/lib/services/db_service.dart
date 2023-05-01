@@ -14,7 +14,7 @@ class DbService with ReactiveServiceMixin {
 
   void setupNodeListening() {
     DatabaseReference starCountRef =
-        _db.ref('/devices/LxjBZjUk76ZAFhCijKcXSERoHvX2/reading');
+        _db.ref('/devices/SubCryCeNuQqYtUT8PR79MVuBAE2/reading');
     starCountRef.onValue.listen((DatabaseEvent event) {
       if (event.snapshot.exists) {
         _node = DeviceData.fromMap(event.snapshot.value as Map);
